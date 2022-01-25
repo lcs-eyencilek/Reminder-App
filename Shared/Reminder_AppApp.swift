@@ -14,7 +14,9 @@ struct Reminder_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(store: store)
+            NavigationView {
+                ContentView(store: store)
+            }
         }
     }
 }
