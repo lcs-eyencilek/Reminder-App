@@ -19,6 +19,8 @@
 		49C4F4A9279FA79200DFCECE /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F4A7279FA79200DFCECE /* TaskPriority.swift */; };
 		49C4F4AB279FA7DA00DFCECE /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */; };
 		49C4F4AC279FA7DA00DFCECE /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */; };
+		49FC9A8C27A0359F0076F382 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FC9A8B27A0359F0076F382 /* TaskCell.swift */; };
+		49FC9A8D27A0359F0076F382 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FC9A8B27A0359F0076F382 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		49C4F4A4279FA72700DFCECE /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		49C4F4A7279FA79200DFCECE /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
+		49FC9A8B27A0359F0076F382 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				49C4F485279FA60400DFCECE /* ContentView.swift */,
+				49FC9A8B27A0359F0076F382 /* TaskCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +212,7 @@
 				49C4F496279FA60600DFCECE /* ContentView.swift in Sources */,
 				49C4F4A5279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A8279FA79200DFCECE /* TaskPriority.swift in Sources */,
+				49FC9A8C27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49C4F494279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +225,7 @@
 				49C4F497279FA60600DFCECE /* ContentView.swift in Sources */,
 				49C4F4A6279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A9279FA79200DFCECE /* TaskPriority.swift in Sources */,
+				49FC9A8D27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49C4F495279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
