@@ -12,6 +12,19 @@ struct TaskCell: View {
     // To tell the screen to check for value change in this object
     @ObservedObject var task: Task
     
+    // Computed property for task color
+    var taskColor: Color {
+        switch task.priority {
+        case .high:
+            return Color.red
+        case .medium:
+            return Color.blue
+        case .low:
+            return Color.primary
+            // We use primary to change the color automatically depending on the background color (always a color that stands out)
+        }
+    }
+    
     var body: some View {
         HStack {
             Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
@@ -22,6 +35,7 @@ struct TaskCell: View {
                 }
             Text(task.description)
         }
+        .foregroundColor(self.taskColor)
     }
 }
 
