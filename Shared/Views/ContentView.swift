@@ -21,6 +21,7 @@ struct ContentView: View {
                  TaskCell(task: task)
             }
             .onDelete(perform: store.deleteItems)
+            .onMove(perform: store.moveItems)
             // You don't call the function, you just invoke it so no ()
         }
         .navigationTitle("Reminders")
@@ -30,6 +31,10 @@ struct ContentView: View {
                 Button("Add") {
                     showingAddTask = true
                 }
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                EditButton()
             }
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask
