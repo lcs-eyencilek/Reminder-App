@@ -16,8 +16,12 @@ struct ContentView: View {
     @State private var showingAddTask = false
     
     var body: some View {
-        List(store.tasks) { task in
-             TaskCell(task: task)
+        List {
+            ForEach(store.tasks) { task in
+                 TaskCell(task: task)
+            }
+            .onDelete(perform: store.deleteItems)
+            // You don't call the function, you just invoke it so no ()
         }
         .navigationTitle("Reminders")
         // Trigger showingAddTask to make the pop-up view appear
