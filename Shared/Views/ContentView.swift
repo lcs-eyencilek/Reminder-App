@@ -30,7 +30,7 @@ struct ContentView: View {
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask
         .sheet(isPresented: $showingAddTask) {
-            AddTask(showing: $showingAddTask)
+            AddTask(store: store, showing: $showingAddTask)
         }
     }
 }

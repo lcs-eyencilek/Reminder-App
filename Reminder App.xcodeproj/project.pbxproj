@@ -57,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4995661D27A2CE8500983C33 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		49C4F47E279FA60400DFCECE = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +79,7 @@
 			children = (
 				49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */,
 				49C4F4A3279FA63200DFCECE /* Model */,
+				4995661D27A2CE8500983C33 /* ViewModels */,
 				49C4F4A2279FA62D00DFCECE /* Views */,
 				49C4F486279FA60600DFCECE /* Assets.xcassets */,
 			);
@@ -109,7 +118,6 @@
 			children = (
 				49C4F4A4279FA72700DFCECE /* Task.swift */,
 				49C4F4A7279FA79200DFCECE /* TaskPriority.swift */,
-				49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
