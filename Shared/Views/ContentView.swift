@@ -15,10 +15,19 @@ struct ContentView: View {
     // Controls whether the add task is showing
     @State private var showingAddTask = false
     
+    // Whether to show completed tasks or not
+    @State var showingCompletedTasks = true
+    
     var body: some View {
         List {
             ForEach(store.tasks) { task in
-                 TaskCell(task: task)
+                if !showingCompletedTasks {
+                    if !task.completed {
+                        TaskCell(task: task)
+                    }
+                } else {
+                    TaskCell(task: task)
+                }
             }
             .onDelete(perform: store.deleteItems)
             .onMove(perform: store.moveItems)
@@ -35,6 +44,12 @@ struct ContentView: View {
             
             ToolbarItem(placement: .navigationBarLeading) {
                 EditButton()
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                Button(" \(showingCompletedTasks ? "Hide" : "Show") Completed") {
+                    showingCompletedTasks.toggle()
+                }
             }
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask
