@@ -18,15 +18,23 @@ struct ContentView: View {
     // Whether to show completed tasks or not
     @State var showingCompletedTasks = true
     
+    // Controls the update status of the ContentView
+    // listShouldUpdate has to be used somewhere in the body paragraph so that SwiftUI checks this variable to update teh scene
+    @State var listShouldUpdate = false
+    
     var body: some View {
+        
+        // We have this decleration mainly to invoke the screen to refresh
+        let _ = print("listShouldUpdate has been toggled. Current vaue is: \(listShouldUpdate)")
+        
         List {
             ForEach(store.tasks) { task in
                 if !showingCompletedTasks {
                     if !task.completed {
-                        TaskCell(task: task)
+                        TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
                     }
                 } else {
-                    TaskCell(task: task)
+                    TaskCell(task: task, triggerListUpdate: Binding.constant(true))
                 }
             }
             .onDelete(perform: store.deleteItems)

@@ -12,6 +12,8 @@ struct TaskCell: View {
     // To tell the screen to check for value change in this object
     @ObservedObject var task: Task
     
+    // Bind listShouldUpdate from ContentView
+    @Binding var triggerListUpdate: Bool
     // Computed property for task color
     var taskColor: Color {
         switch task.priority {
@@ -32,6 +34,9 @@ struct TaskCell: View {
 
                     task.completed.toggle()
                     
+                    withAnimation {
+                        triggerListUpdate.toggle()
+                    }
                 }
             Text(task.description)
         }
@@ -39,9 +44,11 @@ struct TaskCell: View {
     }
 }
 
+
 struct TaskCell_Previews: PreviewProvider {
     static var previews: some View {
-        TaskCell(task: testData[0])
+        TaskCell(task: testData[0], triggerListUpdate: Binding.constant(true))
         //TaskCell(task: testData[1])
     }
 }
+
