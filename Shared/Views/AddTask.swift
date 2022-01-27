@@ -36,6 +36,11 @@ struct AddTask: View {
             }
             .navigationTitle("New Reminder")
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        showing = false
+                    }
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button("Save") {
                         saveTask()
