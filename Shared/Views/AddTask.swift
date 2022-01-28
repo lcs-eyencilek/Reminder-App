@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AddTask: View {
     
+    // Retrieve a task index
+    @Binding var mutatingTask: Task?
+    
     // Get a reference to the store of tasks
     @ObservedObject var store: TaskStore
     
@@ -18,6 +21,17 @@ struct AddTask: View {
     
     // Whether to show this view (derived value)
     @Binding var showing: Bool
+    
+    init (mutatingTask: Binding<Task?>, store: TaskStore, showing: Binding<Bool>) {
+        self._mutatingTask = mutatingTask
+        if mutatingTask.wrappedValue != nil {
+            print("AddTask initializer has detected a task value here are the values.\nDescription: \(mutatingTask.wrappedValue!.description)\nPriority: \(mutatingTask.wrappedValue!.priority.rawValue)")
+            self.description = mutatingTask.wrappedValue!.description
+            self.priority = mutatingTask.wrappedValue!.priority
+        }
+        self.store = store
+        self._showing = showing
+    }
     
     var body: some View {
         NavigationView {
@@ -38,12 +52,13 @@ struct AddTask: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
-                        showing = false
+                        showing.toggle()
+                        mutatingTask = nil
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button("Save") {
-                        saveTask()
+                        saveTask(task: mutatingTask)
                     }
                     .disabled(description.isEmpty)
                 }
@@ -52,23 +67,33 @@ struct AddTask: View {
         .interactiveDismissDisabled()
     }
     
-    func saveTask() {
-        // Initialize the new task
-        let newTask = Task(description: description,
-                           priority: priority,
-                           completed: false)
-        
-        // Add the task to the store
-        store.tasks.append(newTask)
+    func saveTask(task: Task?) {
+        if (task != nil) {
+            print("Task returned nil, creating a new task...")
+            // Mutate the existing task object
+            task!.description = description
+            task!.priority = priority
+        } else {
+            
+            print("Task value bound, updating...")
+            // Initialize the new task
+            let newTask = Task(description: description,
+                               priority: priority,
+                               completed: false)
+            
+            // Add the task to the store
+            store.tasks.append(newTask)
+        }
         
         // Dismiss the view
-        showing = false
+        showing.toggle()
+        mutatingTask = nil
     }
 }
 
 struct AddTask_Previews: PreviewProvider {
     static var previews: some View {
         // This is a workaround to avoid binding a value in previews
-        AddTask(store: testStore, showing: .constant(false))
+        AddTask(mutatingTask: Binding.constant(nil), store: testStore, showing: .constant(false))
     }
 }

@@ -9,10 +9,10 @@ import Foundation
 
 class Task: Identifiable, ObservableObject {
     var id = UUID()
-    var description: String
-    var priority: TaskPriority
     
     // @Published lets you watch for changes on that value in a @StateObject
+    @Published var description: String
+    @Published var priority: TaskPriority
     @Published var completed: Bool
     
     internal init(id: UUID = UUID(), description: String, priority: TaskPriority, completed: Bool) {

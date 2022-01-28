@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let showImportant: Bool
+    
     // To tell the screen to check for value change in this object
     @ObservedObject var store: TaskStore
     
@@ -22,19 +24,24 @@ struct ContentView: View {
     // listShouldUpdate has to be used somewhere in the body paragraph so that SwiftUI checks this variable to update teh scene
     @State var listShouldUpdate = false
     
+    @State var selectedTask: Task? = nil
+    
     var body: some View {
         
         // We have this decleration mainly to invoke the screen to refresh
-        let _ = print("listShouldUpdate has been toggled. Current vaue is: \(listShouldUpdate)")
+        let _ = print("listShouldUpdate has been toggled. Current value is: \(listShouldUpdate)")
         
         List {
             ForEach(store.tasks) { task in
-                if !showingCompletedTasks {
-                    if !task.completed {
-                        TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                // Dismisses the current task if showImportant is true and the task priority is not equal to high
+                if (!showImportant || task.priority == .high) {
+                    if !showingCompletedTasks {
+                        if !task.completed {
+                            TaskCell(task: task, mutatingTask: $selectedTask, triggerAddTask: $showingAddTask, triggerListUpdate: $listShouldUpdate)
+                        }
+                    } else {
+                        TaskCell(task: task, mutatingTask: $selectedTask, triggerAddTask: $showingAddTask, triggerListUpdate: $listShouldUpdate)
                     }
-                } else {
-                    TaskCell(task: task, triggerListUpdate: Binding.constant(true))
                 }
             }
             .onDelete(perform: store.deleteItems)
@@ -46,7 +53,7 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Add") {
-                    showingAddTask = true
+                    showingAddTask.toggle()
                 }
             }
             
@@ -62,7 +69,7 @@ struct ContentView: View {
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask
         .sheet(isPresented: $showingAddTask) {
-            AddTask(store: store, showing: $showingAddTask)
+            AddTask(mutatingTask: $selectedTask, store: store, showing: $showingAddTask)
         }
     }
 }
@@ -70,7 +77,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView(store: testStore)
+            ContentView(showImportant: false, store: testStore)
         }
     }
 }

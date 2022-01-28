@@ -34,7 +34,16 @@ class TaskStore: ObservableObject {
         tasks.move(fromOffsets: source, toOffset: destination)
     }
     
-    
+    // Returns only important tasks
+    func returnImporantTasks() -> [Task] {
+        var importantTasks: [Task] = []
+        
+        for task in tasks where task.priority == .high {
+            importantTasks.append(task)
+        }
+        
+        return importantTasks
+    }
 }
 
 let testStore = TaskStore(tasks: testData)

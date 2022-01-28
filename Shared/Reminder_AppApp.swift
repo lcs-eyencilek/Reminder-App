@@ -14,8 +14,20 @@ struct Reminder_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView(store: store)
+            TabView {
+                NavigationView {
+                    ContentView(showImportant: false, store: store)
+                }.tabItem {
+                    Image(systemName: "list.fill")
+                    Text("All Tasks")
+                }
+                
+                NavigationView {
+                    ContentView(showImportant: true, store: store)
+                }.tabItem {
+                    Image(systemName: "list.fill")
+                    Text("All Tasks")
+                }
             }
         }
     }
