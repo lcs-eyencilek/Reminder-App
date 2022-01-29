@@ -14,6 +14,9 @@ struct TaskCell: View {
     
     // Bind listShouldUpdate from ContentView
     @Binding var triggerListUpdate: Bool
+    
+    @State var shouldShowEdit: Bool = false
+    
     // Computed property for task color
     var taskColor: Color {
         switch task.priority {
@@ -42,6 +45,12 @@ struct TaskCell: View {
             .font(.caption)
         }
         .foregroundColor(self.taskColor)
+        .onTapGesture(count: 2) {
+            shouldShowEdit.toggle()
+        }
+        .sheet(isPresented: $shouldShowEdit) {
+            EditCell(task: task, showing: $shouldShowEdit)
+        }
     }
 }
 
