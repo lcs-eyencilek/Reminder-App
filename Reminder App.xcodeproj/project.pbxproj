@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C3876D27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
+		49C3876E27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
+		49C3877027A4BEDD00F103CE /* ImportantTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */; };
+		49C3877127A4BEDD00F103CE /* ImportantTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */; };
 		49C4F494279FA60600DFCECE /* Reminder_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */; };
 		49C4F495279FA60600DFCECE /* Reminder_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */; };
 		49C4F496279FA60600DFCECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4F485279FA60400DFCECE /* ContentView.swift */; };
@@ -26,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49C3876C27A4BEC800F103CE /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
+		49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantTasks.swift; sourceTree = "<group>"; };
 		49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder_AppApp.swift; sourceTree = "<group>"; };
 		49C4F485279FA60400DFCECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49C4F486279FA60600DFCECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +69,32 @@
 				49C4F4AA279FA7DA00DFCECE /* TaskStore.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		49C3877227A4C04A00F103CE /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				49C4F485279FA60400DFCECE /* ContentView.swift */,
+				49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */,
+			);
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		49C3877327A4C05600F103CE /* Pop-ups */ = {
+			isa = PBXGroup;
+			children = (
+				49FC9A8E27A03E260076F382 /* AddTask.swift */,
+				49C3876C27A4BEC800F103CE /* EditCell.swift */,
+			);
+			path = "Pop-ups";
+			sourceTree = "<group>";
+		};
+		49C3877427A4C06400F103CE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				49FC9A8B27A0359F0076F382 /* TaskCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		49C4F47E279FA60400DFCECE = {
@@ -106,9 +138,9 @@
 		49C4F4A2279FA62D00DFCECE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				49C4F485279FA60400DFCECE /* ContentView.swift */,
-				49FC9A8B27A0359F0076F382 /* TaskCell.swift */,
-				49FC9A8E27A03E260076F382 /* AddTask.swift */,
+				49C3877427A4C06400F103CE /* Components */,
+				49C3877227A4C04A00F103CE /* Main Views */,
+				49C3877327A4C05600F103CE /* Pop-ups */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,11 +254,13 @@
 			files = (
 				49C4F4AB279FA7DA00DFCECE /* TaskStore.swift in Sources */,
 				49C4F496279FA60600DFCECE /* ContentView.swift in Sources */,
+				49C3877027A4BEDD00F103CE /* ImportantTasks.swift in Sources */,
 				49C4F4A5279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A8279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8C27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49FC9A8F27A03E260076F382 /* AddTask.swift in Sources */,
 				49C4F494279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
+				49C3876D27A4BEC800F103CE /* EditCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,11 +270,13 @@
 			files = (
 				49C4F4AC279FA7DA00DFCECE /* TaskStore.swift in Sources */,
 				49C4F497279FA60600DFCECE /* ContentView.swift in Sources */,
+				49C3877127A4BEDD00F103CE /* ImportantTasks.swift in Sources */,
 				49C4F4A6279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A9279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8D27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49FC9A9027A03E260076F382 /* AddTask.swift in Sources */,
 				49C4F495279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
+				49C3876E27A4BEC800F103CE /* EditCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

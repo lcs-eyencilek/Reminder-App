@@ -1,15 +1,13 @@
 //
-//  ContentView.swift
-//  Shared
+//  ImportantTasks.swift
+//  Reminder App
 //
-//  Created by Efe Yencilek on 2022-01-24.
+//  Created by Efe Yencilek on 2022-01-28.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    let showImportant: Bool
+struct ImportantTasks: View {
     
     // To tell the screen to check for value change in this object
     @ObservedObject var store: TaskStore
@@ -24,8 +22,6 @@ struct ContentView: View {
     // listShouldUpdate has to be used somewhere in the body paragraph so that SwiftUI checks this variable to update teh scene
     @State var listShouldUpdate = false
     
-    @State var selectedTask: Task? = nil
-    
     var body: some View {
         
         // We have this decleration mainly to invoke the screen to refresh
@@ -34,15 +30,14 @@ struct ContentView: View {
         List {
             ForEach(store.tasks) { task in
                 // Dismisses the current task if showImportant is true and the task priority is not equal to high
-                if (!showImportant || task.priority == .high) {
-                    if !showingCompletedTasks {
-                        if !task.completed {
-                            TaskCell(task: task, mutatingTask: $selectedTask, triggerAddTask: $showingAddTask, triggerListUpdate: $listShouldUpdate)
-                        }
-                    } else {
-                        TaskCell(task: task, mutatingTask: $selectedTask, triggerAddTask: $showingAddTask, triggerListUpdate: $listShouldUpdate)
+                if !showingCompletedTasks {
+                    if !task.completed && task.priority == .high {
+                        TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
                     }
+                } else if task.priority == .high  {
+                    TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
                 }
+                
             }
             .onDelete(perform: store.deleteItems)
             .onMove(perform: store.moveItems)
@@ -57,10 +52,6 @@ struct ContentView: View {
                 }
             }
             
-            ToolbarItem(placement: .navigationBarLeading) {
-                EditButton()
-            }
-            
             ToolbarItem(placement: .bottomBar) {
                 Button(" \(showingCompletedTasks ? "Hide" : "Show") Completed") {
                     showingCompletedTasks.toggle()
@@ -69,15 +60,13 @@ struct ContentView: View {
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask
         .sheet(isPresented: $showingAddTask) {
-            AddTask(mutatingTask: $selectedTask, store: store, showing: $showingAddTask)
+            AddTask(store: store, showing: $showingAddTask)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ImportantTasks_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            ContentView(showImportant: false, store: testStore)
-        }
+        ImportantTasks(store: testStore)
     }
 }

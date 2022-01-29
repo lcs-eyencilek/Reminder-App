@@ -16,17 +16,17 @@ struct Reminder_AppApp: App {
         WindowGroup {
             TabView {
                 NavigationView {
-                    ContentView(showImportant: false, store: store)
+                    ContentView(store: store)
                 }.tabItem {
                     Image(systemName: "list.fill")
-                    Text("All Tasks")
+                    Text("All")
                 }
                 
                 NavigationView {
-                    ContentView(showImportant: true, store: store)
+                    ImportantTasks(store: store)
                 }.tabItem {
                     Image(systemName: "list.fill")
-                    Text("All Tasks")
+                    Text("Important")
                 }
             }
         }

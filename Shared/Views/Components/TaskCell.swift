@@ -12,10 +12,6 @@ struct TaskCell: View {
     // To tell the screen to check for value change in this object
     @ObservedObject var task: Task
     
-    // Mutating Task Selection & Showing AddTask bindings
-    @Binding var mutatingTask: Task?
-    @Binding var triggerAddTask: Bool
-    
     // Bind listShouldUpdate from ContentView
     @Binding var triggerListUpdate: Bool
     // Computed property for task color
@@ -43,11 +39,6 @@ struct TaskCell: View {
                     }
                 }
             Text(task.description)
-            
-            Button("Edit") {
-                mutatingTask = task
-                triggerAddTask.toggle()
-            }
             .font(.caption)
         }
         .foregroundColor(self.taskColor)
