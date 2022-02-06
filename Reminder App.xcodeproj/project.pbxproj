@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492F944E27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */; };
+		492F944F27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */; };
 		49C3876D27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
 		49C3876E27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
 		49C3877027A4BEDD00F103CE /* ImportantTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibleTaskPriority.swift; sourceTree = "<group>"; };
 		49C3876C27A4BEC800F103CE /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
 		49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantTasks.swift; sourceTree = "<group>"; };
 		49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder_AppApp.swift; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 			children = (
 				49C4F4A4279FA72700DFCECE /* Task.swift */,
 				49C4F4A7279FA79200DFCECE /* TaskPriority.swift */,
+				492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +263,7 @@
 				49C4F4A8279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8C27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49FC9A8F27A03E260076F382 /* AddTask.swift in Sources */,
+				492F944E27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */,
 				49C4F494279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
 				49C3876D27A4BEC800F103CE /* EditCell.swift in Sources */,
 			);
@@ -275,6 +280,7 @@
 				49C4F4A9279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8D27A0359F0076F382 /* TaskCell.swift in Sources */,
 				49FC9A9027A03E260076F382 /* AddTask.swift in Sources */,
+				492F944F27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */,
 				49C4F495279FA60600DFCECE /* Reminder_AppApp.swift in Sources */,
 				49C3876E27A4BEC800F103CE /* EditCell.swift in Sources */,
 			);
