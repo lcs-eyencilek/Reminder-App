@@ -30,32 +30,37 @@ struct ContentView: View {
         // We have this decleration mainly to invoke the screen to refresh
         let _ = print("listShouldUpdate has been toggled. Current value is: \(listShouldUpdate)")
         VStack {
-        
-            HStack {
-                // label for picker
-                Text("Filter by...")
-                    .font(Font.caption.smallCaps())
-                    .foregroundColor(.secondary)
-                
-                Picker("Priority", selection: $selectedPriorityForVisibleTasks) {
-                    Text(VisibleTaskPriority.all.rawValue).tag(VisibleTaskPriority.all)
-                    Text(VisibleTaskPriority.low.rawValue).tag(VisibleTaskPriority.low)
-                    Text(VisibleTaskPriority.medium.rawValue).tag(VisibleTaskPriority.medium)
-                    Text(VisibleTaskPriority.high.rawValue).tag(VisibleTaskPriority.high)
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
+            // label for picker
+            Text("Filter by...")
+                .font(Font.caption.smallCaps())
+                .foregroundColor(.secondary)
+            
+            Picker("Priority", selection: $selectedPriorityForVisibleTasks) {
+                Text(VisibleTaskPriority.all.rawValue).tag(VisibleTaskPriority.all)
+                Text(VisibleTaskPriority.low.rawValue).tag(VisibleTaskPriority.low)
+                Text(VisibleTaskPriority.medium.rawValue).tag(VisibleTaskPriority.medium)
+                Text(VisibleTaskPriority.high.rawValue).tag(VisibleTaskPriority.high)
             }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
             
             List {
                 ForEach(store.tasks) { task in
                     // Dismisses the current task if showImportant is true and the task priority is not equal to high
                     if !showingCompletedTasks {
                         if !task.completed {
-                            TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                            if selectedPriorityForVisibleTasks == .all {
+                                TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                            } else if selectedPriorityForVisibleTasks.rawValue == task.priority.rawValue {
+                                TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                            }
                         }
                     } else {
-                        TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                        if selectedPriorityForVisibleTasks == .all {
+                            TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                        } else if selectedPriorityForVisibleTasks.rawValue == task.priority.rawValue {
+                            TaskCell(task: task, triggerListUpdate: $listShouldUpdate)
+                        }
                     }
                     
                 }
