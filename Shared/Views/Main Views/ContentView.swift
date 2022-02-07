@@ -77,11 +77,25 @@ struct ContentView: View {
                     }
                 }
                 
+                #if os(iOS)
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                #endif
+                
+                #if os(iOS)
                 ToolbarItem(placement: .bottomBar) {
                     Button(" \(showingCompletedTasks ? "Hide" : "Show") Completed") {
                         showingCompletedTasks.toggle()
                     }
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button(" \(showingCompletedTasks ? "Hide" : "Show") Completed") {
+                        showingCompletedTasks.toggle()
+                    }
+                }
+                #endif
             }
         }
         // Here's the pop-up view that'll appear depending on the value of showingAddTask

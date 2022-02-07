@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaskPriority: String {
+enum TaskPriority: String, Codable {
     // You assign a rawValue with these strings
     case high = "High"
     case medium = "Medium"

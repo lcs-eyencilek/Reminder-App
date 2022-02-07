@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		492F944E27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */; };
 		492F944F27B086DF007D5A92 /* VisibleTaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */; };
+		492F945227B098E1007D5A92 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F945127B098E1007D5A92 /* SharedFunctionsAndConstants.swift */; };
+		492F945327B098E1007D5A92 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492F945127B098E1007D5A92 /* SharedFunctionsAndConstants.swift */; };
 		49C3876D27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
 		49C3876E27A4BEC800F103CE /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876C27A4BEC800F103CE /* EditCell.swift */; };
 		49C3877027A4BEDD00F103CE /* ImportantTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */; };
@@ -33,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		492F944D27B086DF007D5A92 /* VisibleTaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibleTaskPriority.swift; sourceTree = "<group>"; };
+		492F945127B098E1007D5A92 /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 		49C3876C27A4BEC800F103CE /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
 		49C3876F27A4BEDD00F103CE /* ImportantTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantTasks.swift; sourceTree = "<group>"; };
 		49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder_AppApp.swift; sourceTree = "<group>"; };
@@ -66,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492F945027B098A2007D5A92 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				492F945127B098E1007D5A92 /* SharedFunctionsAndConstants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4995661D27A2CE8500983C33 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				49C4F484279FA60400DFCECE /* Reminder_AppApp.swift */,
+				492F945027B098A2007D5A92 /* Helpers */,
 				49C4F4A3279FA63200DFCECE /* Model */,
 				4995661D27A2CE8500983C33 /* ViewModels */,
 				49C4F4A2279FA62D00DFCECE /* Views */,
@@ -259,6 +271,7 @@
 				49C4F4AB279FA7DA00DFCECE /* TaskStore.swift in Sources */,
 				49C4F496279FA60600DFCECE /* ContentView.swift in Sources */,
 				49C3877027A4BEDD00F103CE /* ImportantTasks.swift in Sources */,
+				492F945227B098E1007D5A92 /* SharedFunctionsAndConstants.swift in Sources */,
 				49C4F4A5279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A8279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8C27A0359F0076F382 /* TaskCell.swift in Sources */,
@@ -276,6 +289,7 @@
 				49C4F4AC279FA7DA00DFCECE /* TaskStore.swift in Sources */,
 				49C4F497279FA60600DFCECE /* ContentView.swift in Sources */,
 				49C3877127A4BEDD00F103CE /* ImportantTasks.swift in Sources */,
+				492F945327B098E1007D5A92 /* SharedFunctionsAndConstants.swift in Sources */,
 				49C4F4A6279FA72700DFCECE /* Task.swift in Sources */,
 				49C4F4A9279FA79200DFCECE /* TaskPriority.swift in Sources */,
 				49FC9A8D27A0359F0076F382 /* TaskCell.swift in Sources */,
